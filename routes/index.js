@@ -4,9 +4,10 @@
  */
 
 exports.index = function(req, res){
-	
+
 	res.locals = {
-		title: 'Some title'
+		title: res.locals.title,
+		project_name: res.locals.project_name
 	};
 
 	return res.render('layout/index', 

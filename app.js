@@ -20,6 +20,19 @@ app.set('port', configuration.port || process.env.PORT );
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
 
+
+//Global Configuration
+app.use(function(req, res, next){
+	res.locals = ({
+  		title: 'My App!',
+  		project_name: 'My project Name',
+  		phone: '1-250-858-9990',
+  		support_email: 'support@myapp.com',
+  		sales_email: 'sales@myapp.com'
+	});
+	next();
+});
+
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.json());
@@ -32,6 +45,8 @@ app.use(require('less-middleware')({ src: path.join(__dirname, 'public') }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(require('less-middleware')({ src: path.join(__dirname, 'bower_copmnents') }));
 app.use(express.static(path.join(__dirname, 'bower_copmnents')));
+
+
 
 // development only
 if ('development' == app.get('env')) {
