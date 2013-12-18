@@ -12,10 +12,14 @@ var express = require('express')
 
 var app = express();
 
+app.engine('html', require('hogan-express'));
+app.enable('view cache');
+
 // all environments
 app.set('port', configuration.port || process.env.PORT );
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hjs');
+app.set('view engine', 'html');
+
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.json());
