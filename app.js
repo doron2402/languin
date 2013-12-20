@@ -40,6 +40,7 @@ app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(express.cookieParser('your secret here'));
 app.use(express.session());
+app.use(express.bodyParser());
 app.use(app.router);
 app.use(require('less-middleware')({ src: path.join(__dirname, 'public') }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -55,6 +56,15 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/users', user.list);
+app.post('/api/authentication', function(req, res){
+	//Validate User name and Password;
+	
+	var auth = req.body;
+	if (auth.Username === 'admin' && auth.Password === 'admin')
+		res.json({ authenticate: true, username: 'admin', session: '123fdsaf34rfad', logintime: new Date()});
+	else
+		res.json({ authenticate: false });
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
