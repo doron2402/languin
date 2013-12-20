@@ -21,6 +21,7 @@ Good Luck.
 <h5>MongoDB		 <p>- NoSql Database</p></h5>
 <h5>Jasmine		 <p>- Testing (Important!)</p></h5>
 <h5>Bower.IO 		 <p>- A package manager for the web</p></h5>
+<h5>Mongoose 		 <p>- Mongoose is a [MongoDB](http://www.mongodb.org/) object modeling tool designed to work in an asynchronous environment.</p></h5>
 
 
 ### Client Side:
