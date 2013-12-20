@@ -15,7 +15,9 @@ exports.index = function(req, res){
 			partials:
 			{ 
 				footer: 'includes/footer',
-				header: 'includes/header'
+				header: 'includes/header',
+				nav: 'includes/nav',
+				carousel: 'includes/carousel'
 
 			} 
 		} 
