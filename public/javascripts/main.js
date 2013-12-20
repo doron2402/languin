@@ -8,20 +8,40 @@ var AppRouter = Backbone.Router.extend({
 });
 
 var AboutView = Backbone.View.extend({
-	el: $('body'),
+	el: $('#main-wrap'),
 	events: {
 		   
 	},
 	initialize: function(){
     	_.bindAll(this, 'render'); // fixes loss of context for 'this' within methods
-
+    	$(this.el).html('<div class="jumbotron main-page" id="page-about"></div>')
        	this.render(); // not all views are self-rendering. This one is.
     },
     render: function(){
+
+    	$('#page-about').append('<p>Hi</p>');
     	console.log('render view');
     }
 
 });
+
+//Home View
+var HomeView = Backbone.View.extend({
+	el: $('#main-wrap'),
+	events: {
+		   
+	},
+	initialize: function(){
+    	_.bindAll(this, 'render'); // fixes loss of context for 'this' within methods
+    	$(this.el).html('<div class="jumbotron main-page" id="page-home"></div>')
+       	this.render(); // not all views are self-rendering. This one is.
+    },
+    render: function(){
+    	$('#page-home').append('<p>This Home</p>');
+    	console.log('render view');
+    }	
+});
+
 // Initiate the router
 MainApp.mainRouter = new AppRouter;
 
@@ -33,6 +53,7 @@ MainApp.mainRouter.on('route:defaultRoute', function(actions) {
 
 	switch(actions){
       	case 'about':
+      		MainApp.about = new AboutView();
        		console.log('ur in about...');
 		break;
 		case 'contact':
@@ -75,7 +96,23 @@ MainApp.mainRouter.on('route:defaultRoute', function(actions) {
     		});
 
     		//adding the active class to the choosen menu li
-			$(e.target).parent().addClass('active')	
+			$(e.target).parent().addClass('active');
+			this.getPage($(e.target).text());
+
+    	},
+    	getPage: function(page){
+    		page = page.toLowerCase();
+    		console.log('calling to %s', page);
+    		switch(page){
+    			case 'about':
+    				console.log('loading about page');
+    				MainApp.about = new AboutView();
+    				break;
+    			default:
+    				console.log('generating defualt page');
+    				MainApp.home = new HomeView();
+    				break;
+    		}
     	}
 	});
 	
