@@ -26,12 +26,12 @@ var LoginView = Backbone.View.extend({
 	},
 	initialize: function(){
     	_.bindAll(this, 'render'); // fixes loss of context for 'this' within methods
-    	$(this.el).html('<div class="jumbotron main-page" id="page-login"></div>')
+    	$(this.el).html('<div class="container main-page" id="page-login"></div>')
        	this.render(); // not all views are self-rendering. This one is.
     },
     render: function(){
 
-    	$('#page-login').append('<p><form><input type="text" name="user[name]" place-holder="USERNAME" /><input type="password" name="user[pass]" /><input type="submit" /></form></p>');
+    	$('#page-login').append('<form class="form-signin"><h2 class="form-signin-heading">Please sign in</h2><input type="text" class="input-block-level" name="user[name]" placeholder="Username"><input type="password" name="user[pass]" class="input-block-level" placeholder="Password"><label class="checkbox"><input type="checkbox" value="remember-me"> Remember me</label><button class="btn btn-large btn-primary" type="submit">Sign in</button></form>');
     	console.log('render view login');
     },
     submitLoginForm: function(e){

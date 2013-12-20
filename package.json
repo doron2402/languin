@@ -13,6 +13,7 @@
     "mongodb": "*",
     "bower": "~1.2.8",
     "hogan-express": "~0.5.1",
-    "nodemon": "~0.7.10"
+    "nodemon": "~0.7.10",
+    "mongoose": "~3.8.3"
   }
 }

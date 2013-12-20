@@ -8,7 +8,9 @@ var express = require('express')
 	,user = require('./routes/user')
 	,http = require('http')
 	,path = require('path')
-	,configuration = require('./config')();
+	,configuration = require('./config')()
+	,auth = require('./lib/auth')();
+
 
 var app = express();
 
@@ -54,17 +56,8 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', routes.index);
-app.get('/users', user.list);
-app.post('/api/authentication', function(req, res){
-	//Validate User name and Password;
-	
-	var auth = req.body;
-	if (auth.Username === 'admin' && auth.Password === 'admin')
-		res.json({ authenticate: true, username: 'admin', session: '123fdsaf34rfad', logintime: new Date()});
-	else
-		res.json({ authenticate: false });
-});
+/* App Routing */
+var routing = require('./config/routing')(app, routes);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
