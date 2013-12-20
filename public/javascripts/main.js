@@ -7,41 +7,6 @@ var AppRouter = Backbone.Router.extend({
     }
 });
 
-var AboutView = Backbone.View.extend({
-	el: $('#main-wrap'),
-	events: {
-		   
-	},
-	initialize: function(){
-    	_.bindAll(this, 'render'); // fixes loss of context for 'this' within methods
-    	$(this.el).html('<div class="jumbotron main-page" id="page-about"></div>')
-       	this.render(); // not all views are self-rendering. This one is.
-    },
-    render: function(){
-
-    	$('#page-about').append('<p>Hi</p>');
-    	console.log('render view');
-    }
-
-});
-
-//Home View
-var HomeView = Backbone.View.extend({
-	el: $('#main-wrap'),
-	events: {
-		   
-	},
-	initialize: function(){
-    	_.bindAll(this, 'render'); // fixes loss of context for 'this' within methods
-    	$(this.el).html('<div class="jumbotron main-page" id="page-home"></div>')
-       	this.render(); // not all views are self-rendering. This one is.
-    },
-    render: function(){
-    	$('#page-home').append('<p>This Home</p>');
-    	console.log('render view');
-    }	
-});
-
 // Initiate the router
 MainApp.mainRouter = new AppRouter;
 
@@ -67,6 +32,64 @@ MainApp.mainRouter.on('route:defaultRoute', function(actions) {
 
     // Start Backbone history a necessary step for bookmarkable URL's
     Backbone.history.start();
+
+
+
+//About
+var AboutView = Backbone.View.extend({
+	el: $('#main-wrap'),
+	events: {
+		   
+	},
+	initialize: function(){
+    	_.bindAll(this, 'render'); // fixes loss of context for 'this' within methods
+    	$(this.el).html('<div class="jumbotron main-page" id="page-about"></div>')
+       	this.render(); // not all views are self-rendering. This one is.
+    },
+    render: function(){
+
+    	$('#page-about').append('<p>Hi</p>');
+    	console.log('render view');
+    }
+
+});
+
+//Login page
+var LoginView = Backbone.View.extend({
+	el: $('#main-wrap'),
+	events: {
+		   
+	},
+	initialize: function(){
+    	_.bindAll(this, 'render'); // fixes loss of context for 'this' within methods
+    	$(this.el).html('<div class="jumbotron main-page" id="page-login"></div>')
+       	this.render(); // not all views are self-rendering. This one is.
+    },
+    render: function(){
+
+    	$('#page-login').append('<p><form><input type="text" name="user[name]" place-holder="USERNAME" /><input type="password" name="user[pass]" /><input type="submit" /></form></p>');
+    	console.log('render view login');
+    }
+});
+
+//Home View
+var HomeView = Backbone.View.extend({
+	el: $('#main-wrap'),
+	events: {
+		   
+	},
+	initialize: function(){
+    	_.bindAll(this, 'render'); // fixes loss of context for 'this' within methods
+    	$(this.el).html('<div class="jumbotron main-page" id="page-home"></div>')
+       	this.render(); // not all views are self-rendering. This one is.
+    },
+    render: function(){
+    	$('#page-home').append('<p>This Home</p>');
+    	console.log('render view');
+    }	
+});
+
+
 
 
 //View
@@ -107,6 +130,10 @@ MainApp.mainRouter.on('route:defaultRoute', function(actions) {
     			case 'about':
     				console.log('loading about page');
     				MainApp.about = new AboutView();
+    				break;
+    			case 'login':
+    				console.log('login');
+    				MainApp.login = new LoginView();
     				break;
     			default:
     				console.log('generating defualt page');
