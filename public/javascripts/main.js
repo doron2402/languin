@@ -7,6 +7,21 @@ var AppRouter = Backbone.Router.extend({
     }
 });
 
+var AboutView = Backbone.View.extend({
+	el: $('body'),
+	events: {
+		   
+	},
+	initialize: function(){
+    	_.bindAll(this, 'render'); // fixes loss of context for 'this' within methods
+
+       	this.render(); // not all views are self-rendering. This one is.
+    },
+    render: function(){
+    	console.log('render view');
+    }
+
+});
 // Initiate the router
 MainApp.mainRouter = new AppRouter;
 
@@ -15,8 +30,6 @@ MainApp.mainRouter.on('route:defaultRoute', function(actions) {
       	actions = actions.toString().toLowerCase();
 	else
 		actions = null;
-
-	console.log(MainApp.mainView);
 
 	switch(actions){
       	case 'about':
@@ -36,7 +49,6 @@ MainApp.mainRouter.on('route:defaultRoute', function(actions) {
 
 
 //View
-
 (function($){
 
 	var MainView = Backbone.View.extend({ 
@@ -64,9 +76,6 @@ MainApp.mainRouter.on('route:defaultRoute', function(actions) {
 
     		//adding the active class to the choosen menu li
 			$(e.target).parent().addClass('active')	
-    	},
-    	showPage: function(page){
-    		console.log(page);
     	}
 	});
 	
