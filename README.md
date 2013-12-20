@@ -1,5 +1,18 @@
 # simple express app
 
+## How to run:
+1. get the app "git clone..."
+2. install npm.
+3. install node.
+4. install bower.
+5. run `npm install`
+6. run `bower install`
+7. run `npm start`
+8. if u want to run the application unit testing run `npm test`
+9. the app use mongo db, so of course check that your mongo db is runnnig. (if u forgot its `mongod`)
+
+Good Luck.
+
 ## Stack:
 
 ### Server Side:
