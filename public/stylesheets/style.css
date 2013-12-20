@@ -5,3 +5,8 @@ body {
 a {
   color: #00B7FF;
 }
+#navigator-header{
+	width: 100%;
+	position:fixed;
+	z-index:10000;
+}
