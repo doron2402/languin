@@ -13,6 +13,13 @@
 
 Good Luck.
 
+## When pulling
+1. `git pull origin master`
+2. `bower i`
+3. `npm i`
+4. Optional `npm test`
+5. `npm start`
+
 ## Stack:
 
 ### Server Side:
