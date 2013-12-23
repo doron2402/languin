@@ -1,0 +1,14 @@
+{
+  "name": "languin",
+  "version": "0.0.1",
+  "ignore": [
+    "node_modules"
+  ],
+  "dependencies": {
+    "backbone": "1.1.0",
+    "jquery": "1.10.2",
+    "bootstrap": "3.0.3",
+    "json3": "3.2.6",
+    "underscore": "1.5.2"
+  }
+}
