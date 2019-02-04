@@ -13,11 +13,9 @@
     "less-middleware": "*",
     "jasmine-node": "~1.12.0",
     "mongodb": "*",
-    "bower": "~1.7.5",
+    "bower": "~1.8.8",
     "hogan-express": "~0.5.1",
     "nodemon": "~0.7.10",
-    "mongoose": "~3.8.3",
-    "snyk": "^1.105.0"
-  },
-  "snyk": true
+    "mongoose": "~4.13.17"
+  }
 }
