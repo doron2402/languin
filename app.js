@@ -9,10 +9,14 @@ var express = require('express')
 	,http = require('http')
 	,path = require('path')
 	,configuration = require('./config')()
+    ,mongoose = require ('mongoose')
 	,auth = require('./lib/auth')();
 
 
 var app = express();
+
+//mongodb server
+mongoose.connect( "mongodb://localhost:27017");
 
 app.engine('html', require('hogan-express'));
 app.enable('view cache');
